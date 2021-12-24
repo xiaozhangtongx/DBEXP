@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author zhang
- * @since 2021-12-07
+ * @since 2021-12-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -20,9 +20,21 @@ public class Goods implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 商品货号
+     */
     @TableId("GID")
     private Integer gid;
 
+    /**
+     * 商品名称
+     */
+    @TableField("Name")
+    private String name;
+
+    /**
+     * 生产厂商
+     */
     @TableField("Maker")
     private String maker;
 
@@ -38,6 +50,9 @@ public class Goods implements Serializable {
     @TableField("LowLimit")
     private Integer lowlimit;
 
+    /**
+     * 商品描述
+     */
     @TableField("Descri")
     private String descri;
 
@@ -46,6 +61,18 @@ public class Goods implements Serializable {
      */
     @TableField("Price")
     private Float price;
+
+    /**
+     * 商品种类
+     */
+    @TableField("Kinds")
+    private String kinds;
+
+    /**
+     * 商品照片
+     */
+    @TableField("Photo")
+    private String photo;
 
 
 }

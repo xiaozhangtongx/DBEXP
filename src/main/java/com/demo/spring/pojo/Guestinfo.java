@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author zhang
- * @since 2021-12-07
+ * @since 2021-12-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -20,18 +20,33 @@ public class Guestinfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 用户账号
+     */
     @TableId("Uid")
     private Integer uid;
 
+    /**
+     * 订货地址
+     */
     @TableField("Location")
     private String location;
 
+    /**
+     * 赊额
+     */
     @TableField("Borrow")
     private Float borrow;
 
+    /**
+     * 余额
+     */
     @TableField("Rest")
     private Float rest;
 
+    /**
+     * 折扣
+     */
     @TableField("Cheap")
     private Float cheap;
 

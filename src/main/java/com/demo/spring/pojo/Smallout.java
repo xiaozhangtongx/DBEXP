@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author zhang
- * @since 2021-12-07
+ * @since 2021-12-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,11 +21,14 @@ public class Smallout implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 组成ListOut
+     * 细则号
      */
     @TableId("SmallID")
     private Integer smallid;
 
+    /**
+     * 货物数量
+     */
     @TableField("GNum")
     private Integer gnum;
 

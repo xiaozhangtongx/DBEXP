@@ -2,17 +2,19 @@ package com.demo.spring.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zhang
- * @since 2021-12-07
+ * @since 2021-12-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -26,14 +28,29 @@ public class User implements Serializable {
     @TableId("Uid")
     private Integer uid;
 
+    /**
+     * 用户名
+     */
     @TableField("Uname")
     private String uname;
 
-    @TableField("Upwd")
-    private String upwd;
+    /**
+     * 用户密码
+     */
+    @TableField("Upward")
+    private String upward;
 
+    /**
+     * 用户角色
+     */
     @TableField("Role")
     private String role;
+
+    /**
+     * 用户状态
+     */
+    @TableField("State")
+    private Integer state;
 
 
 }
