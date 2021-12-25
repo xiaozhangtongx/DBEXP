@@ -1,6 +1,7 @@
 package com.demo.spring.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.demo.spring.pojo.Goods;
@@ -36,7 +37,7 @@ public class ListoutServiceImpl extends ServiceImpl<ListoutMapper, Listout> impl
 
     @Override
     public RespBean addStout(AddSmallout addSmallout) {
-        System.out.println(addSmallout);
+//        System.out.println(addSmallout);
         System.out.println(addSmallout.getSmallout());
         Listout listout = new Listout();
         listout.setSmallid(addSmallout.getSmallid());
@@ -50,7 +51,7 @@ public class ListoutServiceImpl extends ServiceImpl<ListoutMapper, Listout> impl
     @Override
     public RespBean getStout(ListoutSearchParam listoutSearchParam) {
         QueryWrapper<Listout> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("LNo", "SmallID", "Location", "BDate", "CNo").eq("CNo", listoutSearchParam.getCno()).orderByDesc("BDate");
+        queryWrapper.select("LNo", "SmallID", "Location", "BDate", "CNo", "Lstate").eq("CNo", listoutSearchParam.getCno()).ne("Lstate", 2).orderByDesc("BDate");
         IPage<Map<String, Object>> page = new Page<>(listoutSearchParam.getPage(), listoutSearchParam.getPageSize());
         IPage<Map<String, Object>> mapIPage = listoutMapper.selectMapsPage(page, queryWrapper);
         System.out.println(mapIPage);
@@ -59,6 +60,21 @@ public class ListoutServiceImpl extends ServiceImpl<ListoutMapper, Listout> impl
             respBean = respBean.error("你暂时还没有订单！");
         } else {
             respBean = respBean.success("订单列表更新成功！", mapIPage);
+        }
+        return respBean;
+    }
+
+    @Override
+    public RespBean deleteStout(String smallid) {
+        UpdateWrapper<Listout> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("SmallID", smallid).set("Lstate", 2);
+        Integer rows = listoutMapper.update(null, updateWrapper);
+        System.out.println(rows);
+        RespBean respBean = new RespBean();
+        if (rows != 0) {
+            respBean = respBean.success("订单删除成功！");
+        } else {
+            respBean = respBean.error("订单删除失败！");
         }
         return respBean;
     }

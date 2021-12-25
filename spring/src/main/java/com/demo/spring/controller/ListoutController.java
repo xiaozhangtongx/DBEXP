@@ -38,9 +38,26 @@ public class ListoutController {
         return listoutService.addStout(addSmallout);
     }
 
+    /**
+     * 获取订单信息
+     *
+     * @param listoutSearchParam 程序订单的信息
+     * @return 订单信息
+     */
     @RequestMapping("/getstout")
     public RespBean getStout(@RequestBody ListoutSearchParam listoutSearchParam) {
         return listoutService.getStout(listoutSearchParam);
+    }
+
+    /**
+     * 删除订单
+     *
+     * @param smallid 细则号
+     * @return 删除的结果
+     */
+    @RequestMapping("/deletestout")
+    public RespBean deleteStout(String smallid) {
+        return listoutService.deleteStout(smallid);
     }
 
 }

@@ -30,7 +30,7 @@ public class ShopcatServiceImpl extends ServiceImpl<ShopcatMapper, Shopcat> impl
     @Override
     public RespBean addsCart(Shopcat shopcat) {
         QueryWrapper<Shopcat> wrapperUser = new QueryWrapper<>();
-        wrapperUser.eq("Gid", shopcat.getGid());
+        wrapperUser.select("Uid").eq("Gid", shopcat.getGid());
         List<Shopcat> shopcats = shopcatMapper.selectList(wrapperUser);
         RespBean respBean = new RespBean();
         if (shopcats.isEmpty()) {

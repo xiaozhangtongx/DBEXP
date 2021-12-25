@@ -4,6 +4,7 @@ import com.demo.spring.pojo.Smallout;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.demo.spring.utils.AddSmallout;
 import com.demo.spring.utils.RespBean;
+import com.demo.spring.utils.SmallestParam;
 
 /**
  * <p>
@@ -15,4 +16,6 @@ import com.demo.spring.utils.RespBean;
  */
 public interface ISmalloutService extends IService<Smallout> {
     RespBean addSmalltout(AddSmallout addSmallout);
+
+    RespBean getSmallout(SmallestParam smalloutParam);
 }

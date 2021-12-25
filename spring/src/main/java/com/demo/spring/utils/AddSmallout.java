@@ -1,7 +1,6 @@
 package com.demo.spring.utils;
 
-import com.demo.spring.pojo.Goods;
-import com.demo.spring.pojo.Smallout;
+import com.demo.spring.vo.Usmallout;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

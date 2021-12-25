@@ -1,30 +1,49 @@
-package com.demo.spring.pojo;
+package com.demo.spring.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.demo.spring.pojo.Goods;
+import com.demo.spring.pojo.Smallout;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
 /**
- * <p>
- *
- * </p>
- *
  * @author zhang
- * @since 2021-12-21
+ * @version 1.0
+ * @TODO 订单细则数据库存储
+ * @date 2021/12/24 星期五 21:42
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class Listout extends Smallout implements Serializable {
-
+@EqualsAndHashCode(callSuper = true)
+public class SmallOut extends Goods {
     private static final long serialVersionUID = 1L;
+
+    /**
+     * 细则号
+     */
+    @TableId("SmallID")
+    private String smallid;
+
+    /**
+     * 货物数量
+     */
+    @TableField("GNum")
+    private Integer gnum;
+
+    /**
+     * 购买该货物的总金额
+     */
+    @TableField("Money")
+    private Float money;
+
+    /**
+     * 参照Goods
+     */
+    @TableField("GID")
+    private Integer gid;
 
     /**
      * 订单号
@@ -51,15 +70,8 @@ public class Listout extends Smallout implements Serializable {
     private Date bdate;
 
     /**
-     * 细则号
-     */
-    @TableField("SmallID")
-    private String smallid;
-
-    /**
      * 订单状态
      */
     @TableField("Lstate")
     private Integer state;
-
 }

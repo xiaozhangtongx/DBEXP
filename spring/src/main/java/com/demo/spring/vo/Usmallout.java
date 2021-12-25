@@ -1,4 +1,4 @@
-package com.demo.spring.utils;
+package com.demo.spring.vo;
 
 import com.demo.spring.pojo.Goods;
 import lombok.AllArgsConstructor;
@@ -17,9 +17,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usmallout extends Goods {
+public class Usmallout {
     /**
      * gnum 订货数量
      */
     private Integer gnum;
+    /**
+     * 货物号
+     */
+    private Integer gid;
+    /**
+     * 货物价格
+     */
+    private Float price;
+
 }

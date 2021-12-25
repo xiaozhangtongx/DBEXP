@@ -19,4 +19,6 @@ public interface IListoutService extends IService<Listout> {
     RespBean addStout(AddSmallout addSmallout);
 
     RespBean getStout(ListoutSearchParam listoutSearchParam);
+
+    RespBean deleteStout(String smallid);
 }
