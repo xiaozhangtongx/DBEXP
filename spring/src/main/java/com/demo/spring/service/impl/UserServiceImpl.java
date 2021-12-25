@@ -48,4 +48,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         return respBean;
     }
+
+    @Override
+    public RespBean changePwd(User user) {
+        int rows = userMapper.updateById(user);
+        RespBean respBean = new RespBean();
+        if (rows != 0) {
+            respBean = respBean.success("密码修改成功！");
+        } else {
+            respBean = respBean.error("密码修改失败！");
+        }
+        return respBean;
+    }
 }

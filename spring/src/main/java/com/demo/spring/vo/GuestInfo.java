@@ -1,25 +1,25 @@
-package com.demo.spring.pojo;
+package com.demo.spring.vo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.demo.spring.pojo.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
- * <p>
- *
- * </p>
- *
  * @author zhang
- * @since 2021-12-21
+ * @version 1.0
+ * @TODO 顾客信息
+ * @date 2021/12/25 星期六 17:47
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-public class Guestinfo implements Serializable {
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class GuestInfo extends User {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -57,5 +57,4 @@ public class Guestinfo implements Serializable {
      */
     @TableField("Uname")
     private String uname;
-
 }

@@ -1,6 +1,7 @@
 package com.demo.spring.controller;
 
 
+import com.demo.spring.pojo.User;
 import com.demo.spring.service.impl.UserServiceImpl;
 import com.demo.spring.utils.RespBean;
 import com.demo.spring.utils.UserLoginParam;
@@ -32,8 +33,18 @@ public class UserController {
      */
     @RequestMapping("/login")
     public RespBean userLogin(@RequestBody UserLoginParam userLoginParam) {
-        System.out.println(userLoginParam);
         return userService.userLogin(userLoginParam);
+    }
+
+    /**
+     * 修改用户密码
+     *
+     * @param user 用户信息
+     * @return 修改的结果
+     */
+    @RequestMapping("/changepwd")
+    public RespBean changePwd(@RequestBody User user) {
+        return userService.changePwd(user);
     }
 
 }

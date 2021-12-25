@@ -16,4 +16,6 @@ import com.demo.spring.utils.UserLoginParam;
 public interface IUserService extends IService<User> {
 
     RespBean userLogin(UserLoginParam userLoginParam);
+
+    RespBean changePwd(User user);
 }

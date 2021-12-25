@@ -29,12 +29,6 @@ public class User implements Serializable {
     private Integer uid;
 
     /**
-     * 用户名
-     */
-    @TableField("Uname")
-    private String uname;
-
-    /**
      * 用户密码
      */
     @TableField("Upward")

@@ -24,11 +24,23 @@ public class GuestinfoController {
     @Autowired
     private GuestinfoServiceImpl guestinfoService;
 
+    /**
+     * 获取顾客信息
+     *
+     * @param uid 顾客id
+     * @return 顾客信息
+     */
     @RequestMapping("/getGestInfo")
     private RespBean getGestInfo(int uid) {
         return guestinfoService.getGestInfo(uid);
     }
 
+    /**
+     * 更新顾客信息
+     *
+     * @param guestinfo 顾客信息
+     * @return 更新的结果
+     */
     @RequestMapping("/upGesteInfo")
     private RespBean updateGesteInfo(@RequestBody Guestinfo guestinfo) {
         System.out.println(guestinfo);
