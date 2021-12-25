@@ -33,7 +33,6 @@ public class SmalloutServiceImpl extends ServiceImpl<SmalloutMapper, Smallout> i
 
     @Override
     public RespBean addSmalltout(AddSmallout addSmallout) {
-//        System.out.println(addSmallout);
         ArrayList<Smallout> list = new ArrayList<>();
         List<Usmallout> list1 = addSmallout.getSmallout();
         System.out.println(list1);

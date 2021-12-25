@@ -34,7 +34,6 @@ public class ListoutController {
      */
     @RequestMapping("/stout")
     public RespBean addStout(@RequestBody AddSmallout addSmallout) {
-        System.out.println(addSmallout);
         return listoutService.addStout(addSmallout);
     }
 

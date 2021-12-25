@@ -37,8 +37,6 @@ public class ListoutServiceImpl extends ServiceImpl<ListoutMapper, Listout> impl
 
     @Override
     public RespBean addStout(AddSmallout addSmallout) {
-//        System.out.println(addSmallout);
-        System.out.println(addSmallout.getSmallout());
         Listout listout = new Listout();
         listout.setSmallid(addSmallout.getSmallid());
         listout.setLocation(addSmallout.getLocation());

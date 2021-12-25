@@ -15,4 +15,6 @@ import com.demo.spring.utils.RespBean;
 public interface IGuestinfoService extends IService<Guestinfo> {
 
     RespBean getGestInfo(int uid);
+
+    RespBean updateGesteInfo(Guestinfo guestinfo);
 }
