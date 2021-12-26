@@ -18,4 +18,6 @@ public interface IUserService extends IService<User> {
     RespBean userLogin(UserLoginParam userLoginParam);
 
     RespBean changePwd(User user);
+
+    RespBean userRegister(User user);
 }

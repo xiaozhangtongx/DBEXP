@@ -16,4 +16,10 @@ import com.demo.spring.utils.RespBean;
 public interface IGoodsService extends IService<Goods> {
 
     RespBean getGoods(GoodSearchParam goodSearchParam);
+
+    RespBean updateGoods(Goods goods);
+
+    RespBean addGoods(Goods goods);
+
+    RespBean getwarnGoods();
 }

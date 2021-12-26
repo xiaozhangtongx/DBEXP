@@ -1,6 +1,9 @@
 package com.demo.spring.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.demo.spring.mapper.GuestinfoMapper;
+import com.demo.spring.pojo.Guestinfo;
+import com.demo.spring.pojo.Shopcat;
 import com.demo.spring.pojo.User;
 import com.demo.spring.mapper.UserMapper;
 import com.demo.spring.service.IUserService;
@@ -26,6 +29,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     public UserMapper userMapper;
 
+    @Autowired
+    public GuestinfoMapper guestinfoMapper;
+
     /**
      * 用户登录
      *
@@ -49,6 +55,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return respBean;
     }
 
+    /**
+     * 修改用户密码
+     *
+     * @param user 用户信息
+     * @return 修改的结果
+     */
     @Override
     public RespBean changePwd(User user) {
         int rows = userMapper.updateById(user);
@@ -57,6 +69,38 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             respBean = respBean.success("密码修改成功！");
         } else {
             respBean = respBean.error("密码修改失败！");
+        }
+        return respBean;
+    }
+
+    /**
+     * 用户注册
+     *
+     * @param user 用户信息
+     * @return 注册的结果
+     */
+    @Override
+    public RespBean userRegister(User user) {
+        QueryWrapper<User> wrapperUser = new QueryWrapper<>();
+        wrapperUser.eq("Uid", user.getUid());
+        List<User> users = userMapper.selectList(wrapperUser);
+        RespBean respBean = new RespBean();
+        if (users.isEmpty()) {
+            int insert = userMapper.insert(user);
+            if (insert == 0) {
+                respBean = respBean.error("注册失败，请稍后再试！");
+            } else {
+                Guestinfo guestinfo = new Guestinfo();
+                guestinfo.setUid(user.getUid());
+                int i = guestinfoMapper.insert(guestinfo);
+                if (i != 0) {
+                    respBean = respBean.success("用户注册成功！");
+                } else {
+                    respBean = respBean.error("注册失败，请稍后再试！");
+                }
+            }
+        } else {
+            respBean = respBean.error("改账号已被其他用户注册，请你换个账号试试！");
         }
         return respBean;
     }

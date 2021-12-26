@@ -36,6 +36,18 @@ public class UserController {
         return userService.userLogin(userLoginParam);
     }
 
+
+    /**
+     * 用户登录
+     *
+     * @param user 用户注册信息
+     * @return 用户注册结果
+     */
+    @RequestMapping("/register")
+    public RespBean userRegister(@RequestBody User user) {
+        return userService.userRegister(user);
+    }
+
     /**
      * 修改用户密码
      *

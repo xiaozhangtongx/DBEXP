@@ -3,7 +3,8 @@
 <mapper namespace="com.demo.spring.mapper.GuestinfoMapper">
 
     <select id="getGestInfo" resultType="com.demo.spring.vo.GuestInfo">
-         SELECT * FROM USER,guestinfo WHERE user.`Uid`=guestinfo.`Uid` AND user.`Uid`=#{uid};
+         SELECT * FROM USER,guestinfo WHERE
+                user.`Uid`=guestinfo.`Uid` AND user.`Uid`=#{uid} AND user.`State`=1 ;
     </select>
 
 </mapper>

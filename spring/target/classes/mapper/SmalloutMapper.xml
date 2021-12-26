@@ -4,6 +4,6 @@
     <select id="getSmallout" resultType="com.demo.spring.vo.SmallOut">
          SELECT * FROM smallout,goods,listout
                WHERE smallout.`GID`=goods.`GID` AND smallout.`SmallID`=#{smallid}
-                      AND listout.`CNo`=#{uid} AND smallout.`SmallID`=listout.`SmallID`AND listout.`Lstate`!=2;;
+                      AND listout.`CNo`=#{uid} AND smallout.`SmallID`=listout.`SmallID`AND listout.`Lstate`!=0;
     </select>
 </mapper>

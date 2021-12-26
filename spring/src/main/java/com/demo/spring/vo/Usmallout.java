@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usmallout {
+public class Usmallout extends Goods {
     /**
      * gnum 订货数量
      */

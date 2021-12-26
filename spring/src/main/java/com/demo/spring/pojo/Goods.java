@@ -2,13 +2,15 @@ package com.demo.spring.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zhang
@@ -73,6 +75,12 @@ public class Goods implements Serializable {
      */
     @TableField("Photo")
     private String photo;
+
+    /**
+     * 商品照片
+     */
+    @TableField("Gstate")
+    private Integer gstate;
 
 
 }

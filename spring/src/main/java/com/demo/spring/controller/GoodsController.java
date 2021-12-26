@@ -1,6 +1,7 @@
 package com.demo.spring.controller;
 
 
+import com.demo.spring.pojo.Goods;
 import com.demo.spring.service.impl.GoodsServiceImpl;
 import com.demo.spring.utils.GoodSearchParam;
 import com.demo.spring.utils.RespBean;
@@ -36,5 +37,32 @@ public class GoodsController {
         return goodsService.getGoods(goodSearchParam);
     }
 
+
+    /**
+     * 更新货物信息
+     *
+     * @param goods 货物信息
+     * @return 更新的结果
+     */
+    @RequestMapping("/upgoods")
+    public RespBean updateGoods(@RequestBody Goods goods) {
+        return goodsService.updateGoods(goods);
+    }
+
+    /**
+     * 新增商品
+     *
+     * @param goods 商品信息
+     * @return 新增的结果
+     */
+    @RequestMapping("/addgoods")
+    public RespBean addGoods(@RequestBody Goods goods) {
+        return goodsService.addGoods(goods);
+    }
+
+    @RequestMapping("/getwarngoods")
+    public RespBean getwarnGoods() {
+        return goodsService.getwarnGoods();
+    }
 }
 
